@@ -4,49 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <title>demo</title>
-  <style>
+  <style type="text/css">
     body {
       margin: 0;
       padding: 0;
       display: flex;
+      /*CSS3中的新布局模式 */
       justify-content: center;
+      /*CSS3弹性盒子文字内容居中*/
       align-items: center;
+      /*居中对齐弹性盒子的各项div元素*/
       min-height: 100vh;
+      /*设置段落最小高度，也就是下面的元素与段落的距离*/
       background: #031321;
+      /*定义背景的颜色*/
       font-family: consolas;
+      /*字体的类型*/
     }
 
     a {
       position: relative;
+      /* 绝对定位 */
       display: inline-block;
+      /* 类似浮动，inline-block后块级元素能够在同一行显示 */
       padding: 15px 30px;
+      /* 加大padding的距离 加大美感 */
       color: #2196f3;
+      /* a标签的颜色 */
       text-transform: uppercase;
+      /*全部大写*/
       letter-spacing: 4px;
+      /* 字母之间的距离 */
       text-decoration: none;
+      /* 取消下划线 */
       font-size: 24px;
+      /* 字号大小 */
       overflow: hidden;
+      /* 隐藏溢出部分，清楚列表浮动 */
       transition: 0.2s;
+      /* 过渡的时间 */
+
     }
 
     a:hover {
+      /* 悬停时候的效果 */
       color: #255784;
       background: #2196f3;
       box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
+      /* 添加阴影 */
       transition-delay: 1s;
+      /* 过渡效果开始前等待的时间 */
     }
 
     a span {
       position: absolute;
+      /* 绝对定位 */
       display: block;
+      /* 块状 */
     }
 
+    /*  上边  */
     a span:nth-child(1) {
       top: 0;
       left: -100%;
       width: 100%;
+      /* 宽度的百分比 */
       height: 2px;
+      /* 那条线的高度 */
       background: linear-gradient(90deg, transparent, #2196f3);
+      /* 渐变 */
     }
 
     a:hover span:nth-child(1) {
@@ -54,7 +80,22 @@
       transition: 1s;
     }
 
-    /* 把上面2个复制一份并修改 */
+    /* 右边 */
+    a span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, #2196f3);
+    }
+
+    a:hover span:nth-child(2) {
+      top: 100%;
+      transition: 1s;
+      transition-delay: 0.25s;
+    }
+
+    /* 下边 */
     a span:nth-child(3) {
       bottom: 0;
       right: -100%;
@@ -69,22 +110,7 @@
       transition-delay: 0.5s;
     }
 
-    /* 把上面2个复制一份并修改 */
-    a span:nth-child(2) {
-      top: -100%;
-      right: 0;
-      width: 2px;
-      height: 100%;
-      background: linear-gradient(180deg, transparent, #2196f3);
-    }
-
-    a:hover span:nth-child(2) {
-      right: 100%;
-      transition: 1s;
-      transition-delay: 0.25s;
-    }
-
-    /* 把上面2个复制一份并修改 */
+    /* 左边 */
     a span:nth-child(4) {
       bottom: -100%;
       left: 0;

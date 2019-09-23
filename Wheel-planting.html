@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播图</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      /* 外边距 */
+      padding: 0;
+      /* 内边距 */
+      background: #9b59b6;
+      /* 背景颜色可替换 */
+    }
+
+    .slidershow {
+      /* border: 20px solid red; */
+      /* 辅助作用 */
+      width: 700px;
+      /* 轮播图宽 */
+      height: 400px;
+      /* 轮播图高 */
+      overflow: hidden;
+      /* 隐藏溢出部分 */
+    }
+
+    .middle {
+      position: absolute;
+      /* 绝对定位 */
+      top: 50%;
+      /* 显示在网站距上边的高度比例 */
+      left: 50%;
+      /* 显示在网站距左边的高度比例 */
+      transform: translate(-50%, -50%);
+      /* 当使用：top: 50%;left: 50%;， 是以左上角为原点，故不处于中心位置
+     translate(-50%,-50%) 作用是，往上（x轴）,左（y轴）移动自身长宽的 50%，以使其居于中心位置，如果不用这个那么根据原点调整位置，即是25% */
+    }
+
+    .navigation {
+      /* 轮播图按钮 */
+      position: absolute;
+      bottom: 20px;
+      /* 按钮距底部的大小 */
+      left: 50%;
+      /* 按钮距左边的大小 */
+      transform: translateX(-50%);
+      /* 横向移动自身的50% */
+      display: flex;
+      /* CSS3弹性盒布局，详细见https://blog.csdn.net/weixin_38606332/article/details/80867844 */
+    }
+
+    .bar {
+      /* 调节按钮的大小 */
+      width: 50px;
+      height: 10px;
+      border: 2px solid #fff;
+      margin: 6px;
+      cursor: pointer;
+      /* 光标移动上去显示的形状 */
+      transition: 0.4s;
+    }
+
+    .bar:hover {
+      background: #27ae60;
+      /* 悬浮按钮的颜色 */
+    }
+
+    input[name="r"] {
+      position: absolute;
+      visibility: hidden;
+      /* 影响布局 https://blog.csdn.net/qq_38128179/article/details/80794397 */
+    }
+
+    .slides {
+      width: 500%;
+      height: 100%;
+      display: flex;
+    }
+
+    .slide {
+      width: 20%;
+      transition: 0.6s;
+      /* 单独设置可设置轮播的速度 */
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 设置大小自适应 */
+    #r1:checked~.s1 {
+      margin-left: 0;
+    }
+
+    #r2:checked~.s1 {
+      margin-left: -20%;
+    }
+
+    /* 移动多少的百分比，把他想象成一张一张的图片 */
+    #r3:checked~.s1 {
+      margin-left: -40%;
+    }
+
+    #r4:checked~.s1 {
+      margin-left: -60%;
+    }
+
+    #r5:checked~.s1 {
+      margin-left: -80%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 取色网站 https://flatuicolors.com/palette/defo -->
+  <div class="slidershow middle">
+
+    <div class="slides">
+      <input type="radio" name="r" id="r1">
+      <input type="radio" name="r" id="r2" checked>
+      <!-- checked有预先显示的效果 -->
+      <input type="radio" name="r" id="r3">
+      <input type="radio" name="r" id="r4">
+      <input type="radio" name="r" id="r5">
+
+      <div class="slide s1">
+        <img src="2.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="1.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="3.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="4.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="5.jpg" alt="">
+      </div>
+
+    </div>
+    <div class="navigation">
+      <label for="r1" class="bar"></label>
+      <label for="r2" class="bar"></label>
+      <label for="r3" class="bar"></label>
+      <label for="r4" class="bar"></label>
+      <label for="r5" class="bar"></label>
+    </div>
+  </div>
+
+</body>
+
+</html>
